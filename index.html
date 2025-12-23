@@ -5,237 +5,246 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sofia Kolber — Portfólio</title>
 
-  <!-- Fonts (editorial) -->
+  <!-- Serif Display + Sans clean -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:opsz,wght@5..120,400,500,600&family=Inter:wght@300,400,500&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta inspirada na 2ª imagem (terrosos + neutros) */
-      --pepper: #38261C;  /* marrom bem escuro */
-      --sienna: #6B3F2E;  /* terracota */
-      --oak:    #B0987C;  /* bege amadeirado */
-      --gum:    #8F8C78;  /* verde acinzentado */
-      --smoke:  #DCDAD0;  /* off-white acinzentado */
-      --clay:   #EFE5DE;  /* rosado claro */
+      /* Paleta terrosa (inspirada na sua referência) */
+      --pepper: #38261C;
+      --sienna: #6B3F2E;
+      --oak:    #B0987C;
+      --gum:    #8F8C78;
+      --smoke:  #DCDAD0;
+      --clay:   #EFE5DE;
+
+      --text: var(--pepper);
+      --bg: radial-gradient(1200px 800px at 10% 10%, var(--clay), var(--smoke));
+      --border: rgba(56,38,28,0.14);
+      --shadow: 0 18px 48px rgba(56,38,28,0.16);
     }
 
-    *{ box-sizing: border-box; }
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
     body{
-      margin: 0;
-      color: var(--pepper);
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 700px at 15% 10%, var(--clay), var(--smoke));
     }
 
+    /* Layout: metade texto / metade imagem */
     .wrap{
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      min-height:100vh;
+      display:grid;
+      grid-template-columns: 1.05fr 0.95fr;
     }
 
-    /* Painel “capa” (lado esquerdo) */
-    .cover{
-      padding: clamp(28px, 5vw, 64px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(239,229,222,0.88), rgba(220,218,208,0.88)),
-        radial-gradient(900px 600px at 10% 20%, rgba(176,152,124,0.35), transparent 60%);
-      border-right: 1px solid rgba(56,38,28,0.10);
+    /* Lado texto (capa) */
+    .left{
+      padding: clamp(26px, 5vw, 72px);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 28px;
+      border-right: 1px solid var(--border);
+      position:relative;
+      overflow:hidden;
     }
 
-    .topline{
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(56,38,28,0.65);
+    /* detalhe editorial sutil */
+    .left::before{
+      content:"";
+      position:absolute;
+      inset:-200px -200px auto auto;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle at 30% 30%, rgba(176,152,124,0.30), transparent 62%);
+      transform: rotate(18deg);
+      pointer-events:none;
     }
 
-    .mark{
-      font-family: "Playfair Display", serif;
-      letter-spacing: 0.04em;
-      font-size: 12px;
-      text-transform: none;
-      opacity: 0.8;
-    }
-
-    .title{
-      margin: 0;
-      line-height: 0.9;
-      font-family: "Playfair Display", serif;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      font-size: clamp(52px, 7.5vw, 92px);
-    }
-
-    .subtitle{
-      margin-top: 14px;
-      font-size: 14px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(56,38,28,0.70);
-    }
-
-    .actions{
-      display: flex;
-      align-items: center;
+    .meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
       gap: 14px;
-      margin-top: 26px;
-    }
-
-    .btn{
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(56,38,28,0.20);
-      background: rgba(239,229,222,0.70);
-      color: var(--pepper);
-      text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-size: 12px;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      color: rgba(56,38,28,0.70);
+      position:relative;
+      z-index:1;
+    }
+
+    .meta .name{
+      font-family: "Playfair Display", serif;
+      letter-spacing: 0.06em;
+      text-transform:none;
+      font-size: 12px;
+      color: rgba(56,38,28,0.78);
+    }
+
+    .hero{
+      position:relative;
+      z-index:1;
+    }
+
+    /* PORTFÓLIO gigante */
+    .title{
+      margin:0;
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 0.88;
+      font-size: clamp(56px, 7.8vw, 104px);
+    }
+
+    .subtitle{
+      margin-top: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      color: rgba(56,38,28,0.70);
+    }
+
+    .desc{
+      margin: 18px 0 0;
+      max-width: 44ch;
+      line-height: 1.7;
+      font-size: 14px;
+      color: rgba(56,38,28,0.72);
+    }
+
+    .actions{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      margin-top: 26px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,38,28,0.22);
+      background: rgba(239,229,222,0.72);
+      color: var(--text);
+      text-decoration:none;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
       backdrop-filter: blur(6px);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
     }
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(176,152,124,0.22);
-      border-color: rgba(56,38,28,0.28);
+      border-color: rgba(56,38,28,0.30);
     }
 
-    .note{
-      margin: 0;
-      color: rgba(56,38,28,0.65);
-      font-size: 13px;
-      line-height: 1.6;
-      max-width: 42ch;
+    .btn.secondary{
+      background: transparent;
+      border-color: rgba(56,38,28,0.18);
+      color: rgba(56,38,28,0.78);
     }
 
-    /* Painel direito: “paleta editorial” */
-    .side{
-      padding: clamp(22px, 4vw, 56px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 18px;
-    }
-
-    .palette{
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .footer{
+      display:flex;
+      justify-content:space-between;
       gap: 14px;
-      width: min(420px, 100%);
-    }
-
-    .swatch{
-      border-radius: 18px;
-      padding: 14px;
-      border: 1px solid rgba(56,38,28,0.12);
-      box-shadow: 0 14px 30px rgba(56,38,28,0.08);
-      min-height: 120px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-    }
-
-    .swatch .name{
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      opacity: 0.85;
-    }
-    .swatch .hex{
+      color: rgba(56,38,28,0.58);
       font-size: 12px;
       letter-spacing: 0.08em;
-      opacity: 0.7;
+      position:relative;
+      z-index:1;
     }
 
-    /* Cores das amostras */
-    .c-pepper{ background: var(--pepper); color: var(--smoke); }
-    .c-sienna{ background: var(--sienna); color: var(--smoke); }
-    .c-oak{ background: var(--oak); color: var(--pepper); }
-    .c-gum{ background: var(--gum); color: var(--smoke); }
-    .c-smoke{ background: var(--smoke); color: var(--pepper); }
-    .c-clay{ background: var(--clay); color: var(--pepper); }
+    /* Lado imagem (metade do site coberta) */
+    .right{
+      position:relative;
+      min-height: 60vh;
+      background:
+        linear-gradient(90deg, rgba(220,218,208,0.35), rgba(56,38,28,0.05)),
+        url("img/capa.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.98);
+    }
+
+    /* vinheta pra ficar chic e legível */
+    .right::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 500px at 70% 20%, rgba(239,229,222,0.10), transparent 60%),
+        linear-gradient(180deg, rgba(56,38,28,0.18), rgba(56,38,28,0.02));
+      pointer-events:none;
+    }
+
+    /* pequena etiqueta opcional em cima da imagem */
+    .tag{
+      position:absolute;
+      top: 22px;
+      right: 22px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(220,218,208,0.72);
+      border: 1px solid rgba(56,38,28,0.18);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(56,38,28,0.70);
+      backdrop-filter: blur(6px);
+    }
 
     /* Responsivo */
-    @media (max-width: 860px){
+    @media (max-width: 900px){
       .wrap{ grid-template-columns: 1fr; }
-      .cover{ border-right: none; border-bottom: 1px solid rgba(56,38,28,0.10); }
-      .side{ padding-top: 22px; }
+      .left{ border-right: none; border-bottom: 1px solid var(--border); }
+      .right{ min-height: 46vh; }
+      .tag{ top: 16px; right: 16px; }
     }
   </style>
 </head>
 
 <body>
   <main class="wrap">
-    <section class="cover">
-      <div class="topline">
+    <section class="left">
+      <div class="meta">
         <div>PORTFÓLIO</div>
-        <div class="mark">Sofia Kolber</div>
+        <div class="name">Sofia Kolber</div>
       </div>
 
-      <div>
-        <h1 class="title">PORT<br>FOLIO</h1>
+      <div class="hero">
+        <h1 class="title">PORT<br>FÓLIO</h1>
         <div class="subtitle">Sofia Kolber</div>
+
+        <p class="desc">
+          Seleção de projetos e estudos. (Depois a gente troca por uma frase curta dela.)
+        </p>
 
         <div class="actions">
           <a class="btn" href="projetos.html">Projetos</a>
+          <a class="btn secondary" href="#contato">Contato</a>
         </div>
-
-        <p class="note">
-          Uma seleção de projetos e estudos.  
-          (Depois a gente troca esse texto por uma frase curtinha da Sofia.)
-        </p>
       </div>
 
-      <div class="topline" aria-hidden="true">
-        <div>Interior • Architecture • Design</div>
+      <div class="footer">
+        <div>Interior • Arquitetura • Design</div>
         <div>© <span id="y"></span></div>
       </div>
     </section>
 
-    <aside class="side">
-      <div class="palette" aria-label="Paleta de cores">
-        <div class="swatch c-pepper">
-          <div class="name">Pepper</div>
-          <div class="hex">#38261C</div>
-        </div>
-        <div class="swatch c-sienna">
-          <div class="name">Sienna</div>
-          <div class="hex">#6B3F2E</div>
-        </div>
-        <div class="swatch c-oak">
-          <div class="name">Oak</div>
-          <div class="hex">#B0987C</div>
-        </div>
-        <div class="swatch c-gum">
-          <div class="name">Gum</div>
-          <div class="hex">#8F8C78</div>
-        </div>
-        <div class="swatch c-smoke">
-          <div class="name">Smoke</div>
-          <div class="hex">#DCDAD0</div>
-        </div>
-        <div class="swatch c-clay">
-          <div class="name">Clay</div>
-          <div class="hex">#EFE5DE</div>
-        </div>
-      </div>
-    </aside>
+    <section class="right" aria-label="Imagem de capa">
+      <div class="tag">Selected Works</div>
+    </section>
   </main>
 
   <script>
