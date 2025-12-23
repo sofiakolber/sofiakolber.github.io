@@ -5,20 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sofia Kolber — Portfólio</title>
 
-  <!-- Serif display + sans clean -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:opsz,wght@5..120,400,500,600&family=Inter:wght@300,400,500&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Paleta guardada (não aparece aqui) */
       --pepper:#38261C;
-      --sienna:#6B3F2E;
-      --oak:#B0987C;
-      --gum:#8F8C78;
       --smoke:#DCDAD0;
-      --clay:#EFE5DE;
 
       --bg: var(--smoke);
       --text: var(--pepper);
@@ -38,66 +32,68 @@
 
     main{
       min-height: 100vh;
-      padding: clamp(26px, 6vw, 96px);
+      padding: clamp(32px, 6vw, 96px);
       display:flex;
       align-items:center;
-      justify-content:center;
+      justify-content:flex-start;
       position: relative;
       overflow:hidden;
     }
 
+    /* textura editorial sutil */
     main::before{
       content:"";
       position:absolute;
       inset:-120px;
       background:
-        radial-gradient(900px 540px at 75% 20%, rgba(56,38,28,0.12), transparent 62%),
-        radial-gradient(900px 540px at 10% 85%, rgba(107,63,46,0.06), transparent 62%);
+        radial-gradient(900px 540px at 65% 20%, rgba(56,38,28,0.10), transparent 62%),
+        radial-gradient(900px 540px at 5% 85%, rgba(56,38,28,0.06), transparent 62%);
       pointer-events:none;
     }
 
     .content{
       position:relative;
       z-index:1;
-      width: min(920px, 100%);
+      max-width: 900px;
     }
 
-    /* PORTFOLIO — palavra inteira */
+    /* TÍTULO */
     .title{
       margin:0;
       font-family:"Playfair Display", serif;
       font-weight:500;
       letter-spacing:-0.045em;
-      line-height: 0.9;
-      font-size: clamp(74px, 10.2vw, 148px);
+      line-height:0.9;
+      font-size: clamp(76px, 10.5vw, 160px);
       white-space: nowrap;
     }
 
     .name{
-      margin-top: 22px;
+      margin-top: 24px;
       font-family:"Playfair Display", serif;
       font-weight:400;
       letter-spacing:0.03em;
-      font-size: clamp(22px, 2.9vw, 38px);
+      font-size: clamp(26px, 3vw, 42px);
       color: rgba(56,38,28,0.78);
     }
 
     .desc{
-      margin: 18px 0 0;
-      max-width: 48ch;
+      margin: 20px 0 0;
+      max-width: 46ch;
       font-size: 14px;
       line-height: 1.75;
       color: var(--muted);
     }
 
     .actions{
-      margin-top: 30px;
+      margin-top: 34px;
       display:flex;
       gap: 14px;
       align-items:center;
       flex-wrap:wrap;
     }
 
+    /* BOTÕES IGUAIS */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -121,55 +117,11 @@
       border-color: rgba(56,38,28,0.30);
     }
 
-    .btn.secondary{
-      background: transparent;
-      border-color: rgba(56,38,28,0.16);
-      color: rgba(56,38,28,0.76);
-    }
-
-    #contato{
-      margin-top: clamp(46px, 6vw, 72px);
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      max-width: 56ch;
-    }
-
-    .contact-title{
-      font-family:"Playfair Display", serif;
-      font-weight:500;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-      margin: 0;
-    }
-
-    .contact-line{
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    .contact-links{
-      display:flex;
-      gap: 14px;
-      flex-wrap:wrap;
-      margin-top: 6px;
-    }
-
-    .link{
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(56,38,28,0.78);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(56,38,28,0.20);
-      padding-bottom: 3px;
-    }
-
+    /* rodapé */
     .footer{
       position: fixed;
-      left: clamp(18px, 3vw, 34px);
-      bottom: clamp(14px, 2.5vw, 28px);
+      left: clamp(24px, 3vw, 36px);
+      bottom: clamp(18px, 2.5vw, 30px);
       display:flex;
       gap: 10px;
       font-size: 12px;
@@ -179,9 +131,9 @@
       pointer-events:none;
     }
 
-    @media (max-width: 560px){
+    @media (max-width: 640px){
       .title{ white-space: normal; }
-      .footer{ position: static; margin-top: 40px; pointer-events:auto; }
+      .footer{ position: static; margin-top: 48px; pointer-events:auto; }
     }
   </style>
 </head>
@@ -199,19 +151,8 @@
 
       <div class="actions">
         <a class="btn" href="projetos.html">Projetos</a>
-        <a class="btn secondary" href="#contato">Contato</a>
+        <a class="btn" href="projetos.html">Contato</a>
       </div>
-
-      <section id="contato">
-        <h2 class="contact-title">Contato</h2>
-        <p class="contact-line">
-          (Coloque aqui o e-mail e/ou Instagram da Sofia.)
-        </p>
-        <div class="contact-links">
-          <a class="link" href="mailto:email@exemplo.com">Email</a>
-          <a class="link" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </section>
     </section>
 
     <div class="footer">
