@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
@@ -12,7 +12,7 @@
 
   <style>
     :root{
-      /* Paleta guardada */
+      /* Paleta guardada (não aparece aqui) */
       --pepper:#38261C;
       --sienna:#6B3F2E;
       --oak:#B0987C;
@@ -20,7 +20,6 @@
       --smoke:#DCDAD0;
       --clay:#EFE5DE;
 
-      /* Visual único */
       --bg: var(--smoke);
       --text: var(--pepper);
       --muted: rgba(56,38,28,0.70);
@@ -38,22 +37,21 @@
     }
 
     main{
-      min-height:100vh;
-      padding: clamp(28px, 6vw, 96px);
+      min-height: 100vh;
+      padding: clamp(26px, 6vw, 96px);
       display:flex;
       align-items:center;
       justify-content:center;
-      position:relative;
+      position: relative;
       overflow:hidden;
     }
 
-    /* textura editorial sutil */
     main::before{
       content:"";
       position:absolute;
       inset:-120px;
       background:
-        radial-gradient(900px 540px at 75% 20%, rgba(56,38,28,0.10), transparent 62%),
+        radial-gradient(900px 540px at 75% 20%, rgba(56,38,28,0.12), transparent 62%),
         radial-gradient(900px 540px at 10% 85%, rgba(107,63,46,0.06), transparent 62%);
       pointer-events:none;
     }
@@ -61,32 +59,31 @@
     .content{
       position:relative;
       z-index:1;
-      width: min(980px, 100%);
+      width: min(920px, 100%);
     }
 
-    /* TÍTULO: PORTFOLIO (uma linha só) */
+    /* PORTFOLIO — palavra inteira */
     .title{
       margin:0;
       font-family:"Playfair Display", serif;
       font-weight:500;
       letter-spacing:-0.045em;
-      line-height:0.9;
-      font-size: clamp(72px, 10.5vw, 160px);
-      white-space: nowrap; /* garante que não quebra */
+      line-height: 0.9;
+      font-size: clamp(74px, 10.2vw, 148px);
+      white-space: nowrap;
     }
 
-    /* Nome maior */
     .name{
-      margin-top: 24px;
+      margin-top: 22px;
       font-family:"Playfair Display", serif;
       font-weight:400;
       letter-spacing:0.03em;
-      font-size: clamp(24px, 3vw, 40px);
+      font-size: clamp(22px, 2.9vw, 38px);
       color: rgba(56,38,28,0.78);
     }
 
     .desc{
-      margin: 20px 0 0;
+      margin: 18px 0 0;
       max-width: 48ch;
       font-size: 14px;
       line-height: 1.75;
@@ -94,7 +91,7 @@
     }
 
     .actions{
-      margin-top: 32px;
+      margin-top: 30px;
       display:flex;
       gap: 14px;
       align-items:center;
@@ -130,65 +127,60 @@
       color: rgba(56,38,28,0.76);
     }
 
-    /* Contato */
     #contato{
-      margin-top: clamp(48px, 6vw, 76px);
+      margin-top: clamp(46px, 6vw, 72px);
       padding-top: 18px;
       border-top: 1px solid var(--border);
       max-width: 56ch;
     }
 
     .contact-title{
-      margin:0 0 6px;
       font-family:"Playfair Display", serif;
       font-weight:500;
       font-size: 22px;
-      letter-spacing:-0.02em;
+      letter-spacing: -0.02em;
+      margin: 0;
     }
 
     .contact-line{
-      margin:0 0 10px;
-      font-size:14px;
-      line-height:1.7;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
       color: var(--muted);
     }
 
     .contact-links{
       display:flex;
-      gap:14px;
+      gap: 14px;
       flex-wrap:wrap;
+      margin-top: 6px;
     }
 
     .link{
-      font-size:12px;
+      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing:0.14em;
+      letter-spacing: 0.14em;
       color: rgba(56,38,28,0.78);
-      text-decoration:none;
-      border-bottom:1px solid rgba(56,38,28,0.20);
-      padding-bottom:3px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(56,38,28,0.20);
+      padding-bottom: 3px;
     }
 
-    .link:hover{
-      border-bottom-color: rgba(56,38,28,0.38);
-    }
-
-    /* rodapé discreto */
     .footer{
       position: fixed;
       left: clamp(18px, 3vw, 34px);
       bottom: clamp(14px, 2.5vw, 28px);
       display:flex;
-      gap:10px;
-      font-size:12px;
-      letter-spacing:0.10em;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.10em;
       color: rgba(56,38,28,0.55);
       text-transform: uppercase;
       pointer-events:none;
     }
 
-    @media (max-width: 640px){
-      .title{ white-space: normal; } /* libera quebra no mobile */
+    @media (max-width: 560px){
+      .title{ white-space: normal; }
       .footer{ position: static; margin-top: 40px; pointer-events:auto; }
     }
   </style>
@@ -213,11 +205,11 @@
       <section id="contato">
         <h2 class="contact-title">Contato</h2>
         <p class="contact-line">
-          (email e/ou Instagram aqui)
+          (Coloque aqui o e-mail e/ou Instagram da Sofia.)
         </p>
         <div class="contact-links">
           <a class="link" href="mailto:email@exemplo.com">Email</a>
-          <a class="link" href="https://instagram.com/" target="_blank">Instagram</a>
+          <a class="link" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
         </div>
       </section>
     </section>
