@@ -11,10 +11,8 @@
 
   <style>
     :root{
-      /* fundo “papel” */
       --paper: #e9e2d9;
-      --ink: #0b0b0b; /* preto (não cinza) */
-      --ink-soft: rgba(11,11,11,0.72);
+      --ink: #0b0b0b;
       --line: rgba(11,11,11,0.20);
     }
 
@@ -28,7 +26,6 @@
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
 
-    /* textura de papel (CSS) */
     body::before{
       content:"";
       position:fixed;
@@ -37,7 +34,6 @@
       background:
         radial-gradient(1400px 900px at 25% 20%, rgba(255,255,255,0.60), transparent 60%),
         radial-gradient(1200px 800px at 70% 70%, rgba(0,0,0,0.08), transparent 65%),
-        radial-gradient(900px 600px at 60% 30%, rgba(0,0,0,0.05), transparent 70%),
         repeating-linear-gradient(
           0deg,
           rgba(0,0,0,0.020) 0px,
@@ -65,7 +61,6 @@
       overflow:hidden;
     }
 
-    /* “retângulo/mancha” desfocada no centro (bem fiel à referência) */
     .haze{
       position:absolute;
       left:50%;
@@ -87,31 +82,30 @@
       text-align:center;
     }
 
-    /* Título pequeno, bem espaçado (igual “METABOLISM”) */
+    /* ↑ AUMENTADO */
     .title{
       margin: 0;
-      font-family: "Playfair Display", serif; /* serif display que você gosta */
+      font-family: "Playfair Display", serif;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.48em;
-      font-size: clamp(14px, 2.2vw, 20px);
+      font-size: clamp(18px, 3vw, 28px); /* <<< maior */
       color: var(--ink);
     }
 
-    /* Subtítulo (nome) bem menor e também espaçado */
+    /* ↑ AUMENTADO */
     .name{
-      margin-top: 14px;
+      margin-top: 16px;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.40em;
-      font-size: clamp(10px, 1.5vw, 12px);
+      font-size: clamp(12px, 2vw, 16px); /* <<< maior */
       color: var(--ink);
       opacity: 0.95;
     }
 
-    /* Botões ultra discretos (pra não quebrar o “quiet”) */
     .actions{
-      margin-top: 22px;
+      margin-top: 26px;
       display:flex;
       gap: 16px;
       justify-content:center;
@@ -135,13 +129,13 @@
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
       backdrop-filter: blur(4px);
     }
+
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,0.16);
       border-color: rgba(11,11,11,0.30);
     }
 
-    /* linha inferior central (como “LA CHAMBRE GRAPHIQUE”) */
     .bottomline{
       position: fixed;
       left: 50%;
@@ -156,12 +150,6 @@
       pointer-events:none;
       white-space: nowrap;
     }
-
-    @media (max-width: 520px){
-      .bottomline{ letter-spacing: 0.28em; font-size: 9px; }
-      .title{ letter-spacing: 0.36em; }
-      .name{ letter-spacing: 0.30em; }
-    }
   </style>
 </head>
 
@@ -169,11 +157,11 @@
   <main>
     <div class="haze" aria-hidden="true"></div>
 
-    <section class="content" aria-label="Capa do portfólio">
+    <section class="content">
       <h1 class="title">PORTFOLIO</h1>
       <div class="name">Sofia Kolber</div>
 
-      <div class="actions" aria-label="Navegação">
+      <div class="actions">
         <a class="btn" href="projetos.html">Projetos</a>
         <a class="btn" href="projetos.html">Contato</a>
       </div>
