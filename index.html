@@ -1,32 +1,245 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Sofia Kolber</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sofia Kolber — Portfólio</title>
+
+  <!-- Fonts (editorial) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:opsz,wght@5..120,400,500,600&family=Inter:wght@300,400,500&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #ffffff;
+    :root{
+      /* Paleta inspirada na 2ª imagem (terrosos + neutros) */
+      --pepper: #38261C;  /* marrom bem escuro */
+      --sienna: #6B3F2E;  /* terracota */
+      --oak:    #B0987C;  /* bege amadeirado */
+      --gum:    #8F8C78;  /* verde acinzentado */
+      --smoke:  #DCDAD0;  /* off-white acinzentado */
+      --clay:   #EFE5DE;  /* rosado claro */
+    }
+
+    *{ box-sizing: border-box; }
+    body{
       margin: 0;
-      padding: 80px;
+      color: var(--pepper);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 15% 10%, var(--clay), var(--smoke));
     }
 
-    h1 {
-      font-size: 52px;
-      font-weight: normal;
+    .wrap{
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
     }
 
-    p {
-      font-size: 18px;
-      max-width: 600px;
+    /* Painel “capa” (lado esquerdo) */
+    .cover{
+      padding: clamp(28px, 5vw, 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(239,229,222,0.88), rgba(220,218,208,0.88)),
+        radial-gradient(900px 600px at 10% 20%, rgba(176,152,124,0.35), transparent 60%);
+      border-right: 1px solid rgba(56,38,28,0.10);
+    }
+
+    .topline{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(56,38,28,0.65);
+    }
+
+    .mark{
+      font-family: "Playfair Display", serif;
+      letter-spacing: 0.04em;
+      font-size: 12px;
+      text-transform: none;
+      opacity: 0.8;
+    }
+
+    .title{
+      margin: 0;
+      line-height: 0.9;
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      font-size: clamp(52px, 7.5vw, 92px);
+    }
+
+    .subtitle{
+      margin-top: 14px;
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(56,38,28,0.70);
+    }
+
+    .actions{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .btn{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(56,38,28,0.20);
+      background: rgba(239,229,222,0.70);
+      color: var(--pepper);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 12px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      backdrop-filter: blur(6px);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(176,152,124,0.22);
+      border-color: rgba(56,38,28,0.28);
+    }
+
+    .note{
+      margin: 0;
+      color: rgba(56,38,28,0.65);
+      font-size: 13px;
       line-height: 1.6;
+      max-width: 42ch;
+    }
+
+    /* Painel direito: “paleta editorial” */
+    .side{
+      padding: clamp(22px, 4vw, 56px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .palette{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      width: min(420px, 100%);
+    }
+
+    .swatch{
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid rgba(56,38,28,0.12);
+      box-shadow: 0 14px 30px rgba(56,38,28,0.08);
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .swatch .name{
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      opacity: 0.85;
+    }
+    .swatch .hex{
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+    }
+
+    /* Cores das amostras */
+    .c-pepper{ background: var(--pepper); color: var(--smoke); }
+    .c-sienna{ background: var(--sienna); color: var(--smoke); }
+    .c-oak{ background: var(--oak); color: var(--pepper); }
+    .c-gum{ background: var(--gum); color: var(--smoke); }
+    .c-smoke{ background: var(--smoke); color: var(--pepper); }
+    .c-clay{ background: var(--clay); color: var(--pepper); }
+
+    /* Responsivo */
+    @media (max-width: 860px){
+      .wrap{ grid-template-columns: 1fr; }
+      .cover{ border-right: none; border-bottom: 1px solid rgba(56,38,28,0.10); }
+      .side{ padding-top: 22px; }
     }
   </style>
 </head>
+
 <body>
-  <h1>Sofia Kolber</h1>
-  <p>
-    Portfólio.
-  </p>
+  <main class="wrap">
+    <section class="cover">
+      <div class="topline">
+        <div>PORTFÓLIO</div>
+        <div class="mark">Sofia Kolber</div>
+      </div>
+
+      <div>
+        <h1 class="title">PORT<br>FOLIO</h1>
+        <div class="subtitle">Sofia Kolber</div>
+
+        <div class="actions">
+          <a class="btn" href="projetos.html">Projetos</a>
+        </div>
+
+        <p class="note">
+          Uma seleção de projetos e estudos.  
+          (Depois a gente troca esse texto por uma frase curtinha da Sofia.)
+        </p>
+      </div>
+
+      <div class="topline" aria-hidden="true">
+        <div>Interior • Architecture • Design</div>
+        <div>© <span id="y"></span></div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <div class="palette" aria-label="Paleta de cores">
+        <div class="swatch c-pepper">
+          <div class="name">Pepper</div>
+          <div class="hex">#38261C</div>
+        </div>
+        <div class="swatch c-sienna">
+          <div class="name">Sienna</div>
+          <div class="hex">#6B3F2E</div>
+        </div>
+        <div class="swatch c-oak">
+          <div class="name">Oak</div>
+          <div class="hex">#B0987C</div>
+        </div>
+        <div class="swatch c-gum">
+          <div class="name">Gum</div>
+          <div class="hex">#8F8C78</div>
+        </div>
+        <div class="swatch c-smoke">
+          <div class="name">Smoke</div>
+          <div class="hex">#DCDAD0</div>
+        </div>
+        <div class="swatch c-clay">
+          <div class="name">Clay</div>
+          <div class="hex">#EFE5DE</div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
